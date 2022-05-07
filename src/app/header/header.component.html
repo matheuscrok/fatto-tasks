@@ -1,0 +1,31 @@
+<mat-sidenav-container class="example-container fixed-top">
+  <mat-sidenav mode="side" [(opened)]="opened">
+    <mat-icon svgIcon="unicorn"></mat-icon>
+    <button (click)="openHome()" mat-button class="menu-button">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+      
+    </button>
+    <button (click)="openTask()" mat-button class="menu-button">
+      <mat-icon>task</mat-icon>
+      <span>Tarefas</span>
+      
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <p>
+      <mat-toolbar color="primary">
+        <button mat-button (click)="opened = !opened">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Fatto - Tarefas</span>
+        <span class="menu"></span>
+      </mat-toolbar>
+    </p>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
