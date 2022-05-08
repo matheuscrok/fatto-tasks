@@ -16,4 +16,12 @@ export class TaskService {
   public listar(): Observable<any> {
     return this.httpClient.get(this.apiUrl);
   }
+
+  public adicionar(task: any): Observable<any> {
+    return this.httpClient.post(this.apiUrl, task);
+  }
+
+  public excluir(task: string): void {
+    this.httpClient.delete(this.apiUrl + '/' + task).subscribe();
+  }
 }

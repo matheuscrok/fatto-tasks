@@ -1,5 +1,25 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+<!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <div class="example-box" *ngFor="let movie of tasks" cdkDrag>
     {{ tasks }}
   </div>
-</div>
+</div> -->
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Custo</th>
+        <th scope="col">Data Limite</th>
+      </tr>
+    </thead>
+    <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+      <tr *ngFor="let task of tasks" cdkDrag cdkDragLockAxis="y">
+        <th>
+        </th>
+        <td>{{ task.nome }}</td>
+        <td [ngStyle]="{'background-color': getColor(task.custo)}" id="custo">{{ task.custo | currency:'BRL' }}</td>
+        <td>{{ task.dataLimite }}</td>
+        <button (click)="excluir(task.id)">teste</button>
+      </tr>
+    </tbody>
+  </table>
