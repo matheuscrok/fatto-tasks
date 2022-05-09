@@ -35,7 +35,7 @@
       type="text"
       id="nomeEdit"
       name="nomeEdit"
-      [(ngModel)]="task.nome"
+      [(ngModel)]="selected.nome"
       value="{{ selected.nome }}"
     />
   </form>
@@ -55,7 +55,7 @@
       placeholder="{{ selected.dataLimite }}"
     />
   </form>
-  <!-- <button (click)="add(task.nome,task.dataLimite,task.custo)"><mat-icon>save</mat-icon></button> -->
+  <button (click)="onEdit(selected.nome,selected.dataLimite,selected.custo)"><mat-icon>save</mat-icon></button>
 </div>
 
 <table class="table" *ngIf="loading">

@@ -27,4 +27,11 @@ export class TaskService {
   public excluir(task: string): void {
     this.httpClient.delete(this.apiUrl + '/' + task).subscribe();
   }
+
+  public update(task:any,taskId: string): Observable<any> {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.httpClient.put<any>(this.apiUrl + '/' + taskId, task, {headers : headers})
+     
+  }
 }
