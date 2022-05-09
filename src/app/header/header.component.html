@@ -11,10 +11,13 @@
       </button>
     </mat-menu>
     
-    <button (click)="openTask()" mat-button class="menu-button">
-      <mat-icon>task</mat-icon>
-      <span>Tarefas</span>
-    </button>
+    <mat-menu #menu="matMenu">
+      <button (click)="openTask()" mat-button class="menu-button">
+        <mat-icon>task</mat-icon>
+        <span>Tarefas</span>
+      </button>
+    </mat-menu>
+    
   </mat-sidenav>
   <mat-sidenav-content>
     <p>
