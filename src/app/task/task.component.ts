@@ -31,27 +31,28 @@ export class TaskComponent implements OnInit {
   add(obj: any) {
     this.taskService.adicionar(obj).subscribe({
       next: (data) => {
-        this.getTasks()
+        this.getTasks();
         console.log(data);
       },
-      error: (err) => {this.getTasks()},
+      error: (err) => {
+        this.getTasks();
+      },
       complete: () => {},
-      
-      });
+    });
   }
 
-  update(obj: any,id: string) {
-    this.taskService.update(obj,id).subscribe({
+  update(obj: any, id: string) {
+    this.taskService.update(obj, id).subscribe({
       next: (data) => {
-        this.getTasks()
+        this.getTasks();
         console.log(data);
       },
-      error: (err) => {this.getTasks()},
+      error: (err) => {
+        this.getTasks();
+      },
       complete: () => {},
-      
-      });
+    });
   }
-
 
   excluir(tsk: string) {
     var resultado = confirm('Deseja excluir a tarefa?');
@@ -65,26 +66,36 @@ export class TaskComponent implements OnInit {
     this.getTasks();
   }
 
-  
   onEdit(objNome: any, objData: any, objCusto: any) {
-    this.loading = false;
-    let find:any=this.tasks.find((x:any )=> x.nome === objNome);
-    console.log(find);
-    this.task.nome = objNome;
-    this.task.dataLimite = objData;
-    this.task.custo = objCusto;
-    this.task.ordemApresentacao = find.ordemApresentacao;
-    this.update(this.task,find.id);
+    if (objNome === '' || objData === '' || objCusto === '') {
+      alert('Preencha todos os campos!');
+    } else {
+      this.loading = false;
+      let find: any = this.tasks.find((x: any) => x.nome === objNome);
+      console.log(find);
+      this.task.nome = objNome;
+      this.task.dataLimite = objData;
+      this.task.custo = objCusto;
+      this.task.ordemApresentacao = find.ordemApresentacao;
+      this.update(this.task, find.id);
+    }
   }
 
   onSubmit(objNome: any, objData: any, objCusto: any) {
-    this.loading = false;
-    console.log(objNome, objData, objCusto);
-    this.task.nome = objNome;
-    this.task.dataLimite = objData;
-    this.task.custo = objCusto;
-    this.task.ordemApresentacao = this.tasks.length+1;
-    this.add(this.task);
+    if(this.tasks.find((x: any) => x.nome === objNome)){
+      alert('Tarefa já existe na lista!');
+    }
+    if (objNome === '' || objData === '' || objCusto === '') {
+      alert('Preencha todos os campos!');
+    } else {
+      this.loading = false;
+      console.log(objNome, objData, objCusto);
+      this.task.nome = objNome;
+      this.task.dataLimite = objData;
+      this.task.custo = objCusto;
+      this.task.ordemApresentacao = this.tasks.length + 1;
+      this.add(this.task);
+    }
   }
 
   editar(data: any) {
