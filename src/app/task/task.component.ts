@@ -79,6 +79,9 @@ export class TaskComponent implements OnInit {
       this.task.ordemApresentacao = find.ordemApresentacao;
       this.update(this.task, find.id);
     }
+    this.task.nome = '';
+    this.task.dataLimite = '';
+    this.task.custo = '';
   }
 
   onSubmit(objNome: any, objData: any, objCusto: any) {
@@ -96,6 +99,10 @@ export class TaskComponent implements OnInit {
       this.task.ordemApresentacao = this.tasks.length + 1;
       this.add(this.task);
     }
+    this.task.nome = '';
+    this.task.dataLimite = '';
+    this.task.custo = '';
+    
   }
 
   editar(data: any) {
