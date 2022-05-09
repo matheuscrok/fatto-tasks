@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+
 const material = [
   MatSidenavModule,
   DragDropModule,
@@ -25,6 +27,7 @@ const material = [
   MatDialogModule,
   MatFormFieldModule,
   FormsModule,
+  MatMenuModule
 ];
 
 @NgModule({
