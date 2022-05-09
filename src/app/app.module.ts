@@ -7,25 +7,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskComponent } from './task/task.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-const material=[
+const material = [
   MatSidenavModule,
   DragDropModule,
   MatToolbarModule,
   MatIconModule,
   MatDialogModule,
   MatFormFieldModule,
-  FormsModule
-]
+  FormsModule,
+];
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ const material=[
     TaskComponent,
     HomeComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     material,
@@ -41,9 +41,9 @@ const material=[
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -82,7 +82,7 @@ export class TaskComponent implements OnInit {
   }
 
   onSubmit(objNome: any, objData: any, objCusto: any) {
-    if(this.tasks.find((x: any) => x.nome === objNome)){
+    if (this.tasks.find((x: any) => x.nome === objNome)) {
       alert('Tarefa já existe na lista!');
     }
     if (objNome === '' || objData === '' || objCusto === '') {

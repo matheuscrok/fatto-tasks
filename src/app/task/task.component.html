@@ -1,6 +1,6 @@
 <div class="add">
-    <button (click)="new = !new"><mat-icon>add</mat-icon></button>
-  </div>
+  <button (click)="new = !new"><mat-icon>add</mat-icon></button>
+</div>
 <div class="example-container" *ngIf="new == true">
   <h2>Salvar Tarefa:</h2>
   <label>Nome:</label>
@@ -55,7 +55,9 @@
       placeholder="{{ selected.dataLimite }}"
     />
   </form>
-  <button (click)="onEdit(selected.nome,selected.dataLimite,selected.custo)"><mat-icon>save</mat-icon></button>
+  <button (click)="onEdit(selected.nome, selected.dataLimite, selected.custo)">
+    <mat-icon>save</mat-icon>
+  </button>
 </div>
 
 <table class="table" *ngIf="loading">
@@ -73,7 +75,8 @@
       cdkDrag
       cdkDragLockAxis="y"
       [ngStyle]="{ 'background-color': getColor(obj.custo) }"
-      class = "example-custom -placeholder" cdkDragPlaceholder
+      class="example-custom -placeholder"
+      cdkDragPlaceholder
     >
       <th></th>
       <td>{{ obj.nome }}</td>
@@ -85,5 +88,4 @@
       <button (click)="excluir(obj.id)"><mat-icon>delete</mat-icon></button>
     </tr>
   </tbody>
-  
 </table>
