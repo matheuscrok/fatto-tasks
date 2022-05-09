@@ -1,9 +1,6 @@
-<!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let movie of tasks" cdkDrag>
-    {{ tasks }}
+<div class="add">
+    <button (click)="new = !new"><mat-icon>add</mat-icon></button>
   </div>
-</div> -->
-
 <div class="example-container" *ngIf="new == true">
   <h2>Salvar Tarefa:</h2>
   <label>Nome:</label>
@@ -76,6 +73,7 @@
       cdkDrag
       cdkDragLockAxis="y"
       [ngStyle]="{ 'background-color': getColor(obj.custo) }"
+      class = "example-custom -placeholder" cdkDragPlaceholder
     >
       <th></th>
       <td>{{ obj.nome }}</td>
@@ -87,7 +85,5 @@
       <button (click)="excluir(obj.id)"><mat-icon>delete</mat-icon></button>
     </tr>
   </tbody>
-  <div class="add">
-    <button (click)="new = !new"><mat-icon>add</mat-icon></button>
-  </div>
+  
 </table>
