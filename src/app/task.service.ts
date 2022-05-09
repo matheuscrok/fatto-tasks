@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,7 +18,10 @@ export class TaskService {
   }
 
   public adicionar(task: any): Observable<any> {
-    return this.httpClient.post(this.apiUrl, task);
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    console.log(task)
+    return this.httpClient.post<any>(this.apiUrl, task, {headers : headers});
   }
 
   public excluir(task: string): void {

@@ -14,12 +14,17 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import {MatIconModule} from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 const material=[
   MatSidenavModule,
   DragDropModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  FormsModule
 ]
 
 @NgModule({

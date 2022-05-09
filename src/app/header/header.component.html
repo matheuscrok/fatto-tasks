@@ -1,15 +1,12 @@
 <mat-sidenav-container class="example-container fixed-top">
-  <mat-sidenav mode="side" [(opened)]="opened">
-    <mat-icon svgIcon="unicorn"></mat-icon>
+  <mat-sidenav style="background-color: #3f51b5;" mode="side" [(opened)]="opened">
     <button (click)="openHome()" mat-button class="menu-button">
       <mat-icon>home</mat-icon>
       <span>Home</span>
-      
     </button>
     <button (click)="openTask()" mat-button class="menu-button">
       <mat-icon>task</mat-icon>
       <span>Tarefas</span>
-      
     </button>
     <button mat-button class="menu-button">
       <mat-icon>help</mat-icon>

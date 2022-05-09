@@ -3,23 +3,91 @@
     {{ tasks }}
   </div>
 </div> -->
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Custo</th>
-        <th scope="col">Data Limite</th>
-      </tr>
-    </thead>
-    <tbody cdkDropList (cdkDropListDropped)="drop($event)">
-      <tr *ngFor="let task of tasks" cdkDrag cdkDragLockAxis="y">
-        <th>
-        </th>
-        <td>{{ task.nome }}</td>
-        <td [ngStyle]="{'background-color': getColor(task.custo)}" id="custo">{{ task.custo | currency:'BRL' }}</td>
-        <td>{{ task.dataLimite }}</td>
-        <button (click)="excluir(task.id)">teste</button>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="example-container" *ngIf="new == true">
+  <h2>Salvar Tarefa:</h2>
+  <label>Nome:</label>
+  <input type="text" id="task.nome" name="task.nome" [(ngModel)]="task.nome" />
+
+  <label>Data Limite:</label>
+  <input
+    type="date"
+    id="task.dataLimite"
+    name="task.dataLimite"
+    [(ngModel)]="task.dataLimite"
+    placeholder="0"
+  />
+  <label>Custo:</label>
+  <input
+    type="number"
+    id="task.custo"
+    name="task.custo"
+    [(ngModel)]="task.custo"
+    placeholder="0"
+  />
+  <button (click)="onSubmit(task.nome, task.dataLimite, task.custo)">
+    <mat-icon>save</mat-icon>
+  </button>
+</div>
+
+<div class="example-container formss" *ngIf="edit == true">
+  <br />
+  <h2>Editar:{{ selected.nome }}</h2>
+  <form>
+    <input
+      type="text"
+      id="nomeEdit"
+      name="nomeEdit"
+      [(ngModel)]="task.nome"
+      value="{{ selected.nome }}"
+    />
+  </form>
+  <input
+    matInput
+    type="number"
+    class="example-right-align"
+    placeholder="{{ selected.custo | currency: 'BRL' }}"
+  />
+
+  <form>
+    <input
+      matInput
+      type="date"
+      class="example-right-align"
+      value="{{ selected.dataLimite }}"
+      placeholder="{{ selected.dataLimite }}"
+    />
+  </form>
+  <!-- <button (click)="add(task.nome,task.dataLimite,task.custo)"><mat-icon>save</mat-icon></button> -->
+</div>
+
+<table class="table" *ngIf="loading">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Custo</th>
+      <th scope="col">Data Limite</th>
+    </tr>
+  </thead>
+  <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+    <tr
+      *ngFor="let obj of tasks"
+      cdkDrag
+      cdkDragLockAxis="y"
+      [ngStyle]="{ 'background-color': getColor(obj.custo) }"
+    >
+      <th></th>
+      <td>{{ obj.nome }}</td>
+      <td>
+        {{ obj.custo | currency: "BRL" }}
+      </td>
+      <td>{{ obj.dataLimite }}</td>
+      <button (click)="editar(obj)"><mat-icon>edit</mat-icon></button>
+      <button (click)="excluir(obj.id)"><mat-icon>delete</mat-icon></button>
+    </tr>
+  </tbody>
+  <div class="add">
+    <button (click)="new = !new"><mat-icon>add</mat-icon></button>
+  </div>
+</table>
