@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  apiUrl = 'https://app-fatto-task-backend.herokuapp.com/task';
+  apiUrl = 'http://localhost:8080/task';
 
   constructor(private httpClient: HttpClient) {}
 
