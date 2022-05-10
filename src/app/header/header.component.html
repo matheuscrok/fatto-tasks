@@ -4,17 +4,19 @@
     mode="side"
     [(opened)]="opened"
   >
+   <button mat-button [matMenuTriggerFor]="menu">Home</button>
     <mat-menu #menu="matMenu">
       <button (click)="openHome()" mat-button class="menu-button">
         <mat-icon>home</mat-icon>
-        <span>Home</span>
+        <!-- <span>Home</span> -->
       </button>
     </mat-menu>
     
+    <button mat-button [matMenuTriggerFor]="menu">Tarefas</button>
     <mat-menu #menu="matMenu">
       <button (click)="openTask()" mat-button class="menu-button">
         <mat-icon>task</mat-icon>
-        <span>Tarefas</span>
+        <!-- <span>Tarefas</span> -->
       </button>
     </mat-menu>
     
